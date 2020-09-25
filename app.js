@@ -12,9 +12,9 @@ var connection = mysql.createConnection({
   database: 'node'
 });
 
+connection.connect();
 
-
-
+/*
 connection.connect(function(err) {
     if (err) throw err;
     console.log("Connected!");
@@ -26,6 +26,7 @@ connection.connect(function(err) {
 
   });
 
+*/
 
 app.use(express.static('public'));
 
