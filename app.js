@@ -18,10 +18,10 @@ var connection = mysql.createConnection({
 connection.connect(function(err) {
     if (err) throw err;
     console.log("Connected!");
-    var sql = "CREATE TABLE songs (id INT, title VARCHAR(100),thumbnail VARCHAR(100),route VARCHAR(100))";
+    var sql = "CREATE TABLE torunaments (id INT, title VARCHAR(100),descripton MEDIUMTEXT,rules MEDIUMTEXT, banner VARCHAR(100), logo VARCHAR(200))";
     connection.query(sql, function (err, result) {
       if (err) throw err;
-      console.log("Table songs created");
+      console.log("Table torunaments created");
     });
 
   });
