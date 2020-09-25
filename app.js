@@ -11,14 +11,25 @@ var connection = mysql.createConnection({
   password : '',
 });
 
-connection.connect(function(err) {  
-    if (err) throw err;  
-    console.log("Connected!");  
-    connection.query("CREATE DATABASE node", function (err, result) {  
-    if (err) throw err;  
-    console.log("Database created");  
-    });  
-    });  
+
+
+
+connection.connect(function(err) {
+    if (err) throw err;
+    console.log("Connected!");
+    var sql = `CREATE TABLE 'node'.'chat' (
+        'idchat' INT NOT NULL AUTO_INCREMENT,
+        'message' MEDIUMTEXT NULL,
+        'type' INT NULL,
+        PRIMARY KEY ('idchat'))`;
+    connection.query(sql, function (err, result) {
+      if (err) throw err;
+      console.log("Table chat created");
+    });
+
+  });
+
+
 app.use(express.static('public'));
 
 app.use((req, res, next) => {
