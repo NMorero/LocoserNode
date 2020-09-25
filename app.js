@@ -18,7 +18,7 @@ var connection = mysql.createConnection({
 connection.connect(function(err) {
     if (err) throw err;
     console.log("Connected!");
-    var sql = `CREATE TABLE chat (id INT NOT NULL AUTO_INCREMENT, message MEDIUMTEXT), type INT`;
+    var sql = "CREATE TABLE chat (id INT, message VARCHAR(255), type INT(3))";
     connection.query(sql, function (err, result) {
       if (err) throw err;
       console.log("Table chat created");
