@@ -9,11 +9,16 @@ var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
   password : '',
-  database: 'node'
 });
 
-connection.connect();
-
+connection.connect(function(err) {  
+    if (err) throw err;  
+    console.log("Connected!");  
+    con.query("CREATE DATABASE node", function (err, result) {  
+    if (err) throw err;  
+    console.log("Database created");  
+    });  
+    });  
 app.use(express.static('public'));
 
 app.use((req, res, next) => {
