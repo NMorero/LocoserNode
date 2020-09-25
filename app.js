@@ -9,6 +9,7 @@ var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
   password : '',
+  database: 'node'
 });
 
 
@@ -17,11 +18,7 @@ var connection = mysql.createConnection({
 connection.connect(function(err) {
     if (err) throw err;
     console.log("Connected!");
-    var sql = `CREATE TABLE 'node'.'chat' (
-        'idchat' INT NOT NULL AUTO_INCREMENT,
-        'message' MEDIUMTEXT NULL,
-        'type' INT NULL,
-        PRIMARY KEY ('idchat'))`;
+    var sql = `CREATE TABLE chat (id INT NOT NULL AUTO_INCREMENT, message MEDIUMTEXT), type INT`;
     connection.query(sql, function (err, result) {
       if (err) throw err;
       console.log("Table chat created");
