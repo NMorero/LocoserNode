@@ -14,7 +14,7 @@ var connection = mysql.createConnection({
 connection.connect(function(err) {  
     if (err) throw err;  
     console.log("Connected!");  
-    con.query("CREATE DATABASE node", function (err, result) {  
+    connect.query("CREATE DATABASE node", function (err, result) {  
     if (err) throw err;  
     console.log("Database created");  
     });  
