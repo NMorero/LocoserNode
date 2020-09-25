@@ -18,10 +18,10 @@ var connection = mysql.createConnection({
 connection.connect(function(err) {
     if (err) throw err;
     console.log("Connected!");
-    var sql = "CREATE TABLE chat (id INT, message VARCHAR(255), type INT(3))";
+    var sql = "CREATE TABLE songs (id INT, title VARCHAR(100),thumbnail VARCHAR(100),route VARCHAR(100))";
     connection.query(sql, function (err, result) {
       if (err) throw err;
-      console.log("Table chat created");
+      console.log("Table songs created");
     });
 
   });
