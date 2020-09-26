@@ -63,7 +63,7 @@ app.get('/db/songs/:id', function (req, res) {
 });
 
 app.get('/featured/index/info', function (req, res) {
-    fs.readFile('/www/LocoserNode/public/json/featured.json', 'utf8', function (err, data) {
+    fs.readFile('/json/featured.json', 'utf8', function (err, data) {
         if (err) throw err;
         res.send(data);
     });
