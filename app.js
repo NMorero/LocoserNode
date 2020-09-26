@@ -16,7 +16,7 @@ var connection = mysql.createConnection({
 
 connection.connect();
 
-var sql = "INSERT INTO songs (title, thumbnail, route, ) VALUES ?";
+
 var values = [
     ['CECI DÍAZ - SI NO SABES WALLEAR    #RADIOSER #HIT2020', '/music/img/1.webp', '/music/1.mp3'],
     ['MAGIAR SCOUT - CECI DIAZ ft MAGIAR SCOUT - CECI DIAZ ft LOCOSER', '/music/img/2.webp', '/music/2.mp3'],
@@ -47,9 +47,14 @@ var values = [
     ['L! Clan Music || La Doble Arqueria', '/music/img/26.webp', '/music/26.mp3'],
     ['La Cumbia del Dinomatero', '/music/img/27.webp', '/music/27.mp3'],
 ];
-connection.query(sql, [values], function (err, result) {
-    if (err) throw err;
-    console.log("Song inserted");
+
+
+values.forEach(song => {
+    var sql = `INSERT INTO chat (title, thumbnail, route) VALUES ('${song[0]}', ${song[1]}, ${song[2]})`
+    connection.query(sql, function (err, result) {
+        if (err) throw err;
+        console.log("Song inserted");
+    });
 });
 
 /*
