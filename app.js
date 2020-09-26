@@ -14,13 +14,13 @@ var connection = mysql.createConnection({
   database: 'node'
 });
 
-connection.connect();
-var sql = "DROP TABLE songs";  
-connection.query(sql, function (err, result) {  
-if (err) throw err;  
-console.log("Table deleted");  
-});  
+connection.connect(); 
 
+var sql = "CREATE TABLE songs (id INT AUTO_INCREMENT, title VARCHAR(100),  thumbnail VARCHAR(100),  route VARCHAR(100))";
+    connection.query(sql, function (err, result) {
+      if (err) throw err;
+      console.log("Table torunaments created");
+    });
 
 var values = [
     ['CECI DÍAZ - SI NO SABES WALLEAR    #RADIOSER #HIT2020', '/music/img/1.webp', '/music/1.mp3'],
@@ -62,12 +62,6 @@ values.forEach(song => {
     });
 });
 
-
-var sql = "CREATE TABLE songs (id INT AUTO_INCREMENT, title VARCHAR(100),  thumbnail VARCHAR(100),  route VARCHAR(100))";
-    connection.query(sql, function (err, result) {
-      if (err) throw err;
-      console.log("Table torunaments created");
-    });
 
 
 app.use(express.static(path.join(__dirname, 'public')));
