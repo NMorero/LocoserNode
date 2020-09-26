@@ -97,7 +97,7 @@ io.on('connection', function(client) {
     //var address = client.handshake.address;
     client.on('chat/message', function(data) {
         client.broadcast.emit('chat/message', data);
-        var sql = `INSERT INTO chat (message, type) VALUES ('${data.message}'), 1`;
+        var sql = `INSERT INTO chat (message, type) VALUES ('${data.message}', 1)`;
         connection.query(sql, function (err, result) {
             if (err) throw err;
             con-sole.log("Message inserted");
