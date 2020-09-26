@@ -17,60 +17,6 @@ var connection = mysql.createConnection({
 connection.connect();
 
 
-var values = [
-    ['CECI DÍAZ - SI NO SABES WALLEAR    #RADIOSER #HIT2020', '/music/img/1.webp', '/music/1.mp3'],
-    ['MAGIAR SCOUT - CECI DIAZ ft MAGIAR SCOUT - CECI DIAZ ft LOCOSER', '/music/img/2.webp', '/music/2.mp3'],
-    ['SI TE AGARRO CON MARIO - LOCOSER ft CECI DIAZ', '/music/img/3.webp', '/music/3.mp3'],
-    ['CECI DÍAZ - HERA DIJO (NO ES NICOV)  #RADIOSER', '/music/img/4.webp', '/music/4.mp3'],
-    ['QUIEREN MATAR A NICOV - LOCOSER', '/music/img/5.webp', '/music/5.mp3'],
-    ['LA DOBLE ARQUERIA - CECI DIAZ ft LOCOSER', '/music/img/6.webp', '/music/6.mp3'],
-    ['--Locacho Castaña--    [L! Clan Music]', '/music/img/7.webp', '/music/7.mp3'],
-    ['--Hombre de Armas-- [L! Clan Music]', '/music/img/8.webp', '/music/8.mp3'],
-    ['TERA ME LEVANTO - CECI DIAZ ft LOCOSER', '/music/img/9.webp', '/music/9.mp3'],
-    ['[L! Clan Music]  Nunca me dejes Nicov', '/music/img/10.webp', '/music/10.mp3'],
-    ['L! Clan Music || Pusheame --Hit del Verano 2020--', '/music/img/11.webp', '/music/11.mp3'],
-    ['[L! Clan AGE Music] --Lo GEGEARIA Todo--', '/music/img/12.webp', '/music/12.mp3'],
-    ['LOCOSER ft CECI DÍAZ - MESO A MESO  #RADIOSER', '/music/img/13.webp', '/music/13.mp3'],
-    ['LOCOSER ft CECI DÍAZ - FUNITO ESTA FORWARD  #RADIOSER', '/music/img/14.webp', '/music/14.mp3'],
-    ['Tera ven Rápido [L! Clan Music ft. Keeper]', '/music/img/15.webp', '/music/15.mp3'],
-    ['--Leon Migrante--  [L! Clan Music]', '/music/img/16.webp', '/music/16.mp3'],
-    ['--La Balada de Viper y la Muerte-- [L! Clan Music]', '/music/img/17.webp', '/music/17.mp3'],
-    ['[L! Clan Music]  #LeonesFuimos #DBZ', '/music/img/17.webp', '/music/17.mp3'],
-    ['--Cumbion del Age #PrayForBurunito-- [L! Clan Music]', '/music/img/18.webp', '/music/18.mp3'],
-    ['L! Clan Music: Tradering Band (El Rock del DE)', '/music/img/19.webp', '/music/19.mp3'],
-    ['La Vida esta en Feudal  [L! Clan Music]', '/music/img/20.webp', '/music/20.mp3'],
-    ['HIMNO NACIONAL ARGENTINO - CECI DIAZ ft LOCOSER', '/music/img/21.webp', '/music/21.mp3'],
-    ['Ese Migra Me Separa [L! Clan Music]', '/music/img/22.webp', '/music/22.mp3'],
-    ['L! Clan Music || KT con Pureza', '/music/img/23.webp', '/music/23.mp3'],
-    ['L! Clan Music || De Musica Eichera', '/music/img/24.webp', '/music/24.mp3'],
-    ['Un Angel para la Edad Imperial   [L! Clan Music]', '/music/img/25.webp', '/music/25.mp3'],
-    ['L! Clan Music || La Doble Arqueria', '/music/img/26.webp', '/music/26.mp3'],
-    ['La Cumbia del Dinomatero', '/music/img/27.webp', '/music/27.mp3'],
-];
-
-
-values.forEach(song => {
-    var sql = `INSERT INTO songs (title, thumbnail, route) VALUES ('${song[0]}', '${song[1]}', '${song[2]}')`
-    connection.query(sql, function (err, result) {
-        if (err) throw err;
-        console.log("Song inserted");
-    });
-});
-
-/*
-connection.connect(function(err) {
-    if (err) throw err;
-    console.log("Connected!");
-    var sql = "CREATE TABLE torunaments (id INT, title VARCHAR(100),descripton MEDIUMTEXT,rules MEDIUMTEXT, banner VARCHAR(100), logo VARCHAR(200))";
-    connection.query(sql, function (err, result) {
-      if (err) throw err;
-      console.log("Table torunaments created");
-    });
-
-  });
-
-*/
-
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use((req, res, next) => {
@@ -154,4 +100,65 @@ io.on('connection', function(client) {
         if (err) throw err;
         res.send(data);
     });
+*/
+
+
+/*
+CREATE TABLE
+
+connection.connect(function(err) {
+    if (err) throw err;
+    console.log("Connected!");
+    var sql = "CREATE TABLE torunaments (id INT, title VARCHAR(100),descripton MEDIUMTEXT,rules MEDIUMTEXT, banner VARCHAR(100), logo VARCHAR(200))";
+    connection.query(sql, function (err, result) {
+      if (err) throw err;
+      console.log("Table torunaments created");
+    });
+
+  });
+
+*/
+
+/*
+INSERT MULTIPLE
+
+var values = [
+    ['CECI DÍAZ - SI NO SABES WALLEAR    #RADIOSER #HIT2020', '/music/img/1.webp', '/music/1.mp3'],
+    ['MAGIAR SCOUT - CECI DIAZ ft MAGIAR SCOUT - CECI DIAZ ft LOCOSER', '/music/img/2.webp', '/music/2.mp3'],
+    ['SI TE AGARRO CON MARIO - LOCOSER ft CECI DIAZ', '/music/img/3.webp', '/music/3.mp3'],
+    ['CECI DÍAZ - HERA DIJO (NO ES NICOV)  #RADIOSER', '/music/img/4.webp', '/music/4.mp3'],
+    ['QUIEREN MATAR A NICOV - LOCOSER', '/music/img/5.webp', '/music/5.mp3'],
+    ['LA DOBLE ARQUERIA - CECI DIAZ ft LOCOSER', '/music/img/6.webp', '/music/6.mp3'],
+    ['--Locacho Castaña--    [L! Clan Music]', '/music/img/7.webp', '/music/7.mp3'],
+    ['--Hombre de Armas-- [L! Clan Music]', '/music/img/8.webp', '/music/8.mp3'],
+    ['TERA ME LEVANTO - CECI DIAZ ft LOCOSER', '/music/img/9.webp', '/music/9.mp3'],
+    ['[L! Clan Music]  Nunca me dejes Nicov', '/music/img/10.webp', '/music/10.mp3'],
+    ['L! Clan Music || Pusheame --Hit del Verano 2020--', '/music/img/11.webp', '/music/11.mp3'],
+    ['[L! Clan AGE Music] --Lo GEGEARIA Todo--', '/music/img/12.webp', '/music/12.mp3'],
+    ['LOCOSER ft CECI DÍAZ - MESO A MESO  #RADIOSER', '/music/img/13.webp', '/music/13.mp3'],
+    ['LOCOSER ft CECI DÍAZ - FUNITO ESTA FORWARD  #RADIOSER', '/music/img/14.webp', '/music/14.mp3'],
+    ['Tera ven Rápido [L! Clan Music ft. Keeper]', '/music/img/15.webp', '/music/15.mp3'],
+    ['--Leon Migrante--  [L! Clan Music]', '/music/img/16.webp', '/music/16.mp3'],
+    ['--La Balada de Viper y la Muerte-- [L! Clan Music]', '/music/img/17.webp', '/music/17.mp3'],
+    ['[L! Clan Music]  #LeonesFuimos #DBZ', '/music/img/17.webp', '/music/17.mp3'],
+    ['--Cumbion del Age #PrayForBurunito-- [L! Clan Music]', '/music/img/18.webp', '/music/18.mp3'],
+    ['L! Clan Music: Tradering Band (El Rock del DE)', '/music/img/19.webp', '/music/19.mp3'],
+    ['La Vida esta en Feudal  [L! Clan Music]', '/music/img/20.webp', '/music/20.mp3'],
+    ['HIMNO NACIONAL ARGENTINO - CECI DIAZ ft LOCOSER', '/music/img/21.webp', '/music/21.mp3'],
+    ['Ese Migra Me Separa [L! Clan Music]', '/music/img/22.webp', '/music/22.mp3'],
+    ['L! Clan Music || KT con Pureza', '/music/img/23.webp', '/music/23.mp3'],
+    ['L! Clan Music || De Musica Eichera', '/music/img/24.webp', '/music/24.mp3'],
+    ['Un Angel para la Edad Imperial   [L! Clan Music]', '/music/img/25.webp', '/music/25.mp3'],
+    ['L! Clan Music || La Doble Arqueria', '/music/img/26.webp', '/music/26.mp3'],
+    ['La Cumbia del Dinomatero', '/music/img/27.webp', '/music/27.mp3'],
+];
+
+
+values.forEach(song => {
+    var sql = `INSERT INTO songs (title, thumbnail, route) VALUES ('${song[0]}', '${song[1]}', '${song[2]}')`
+    connection.query(sql, function (err, result) {
+        if (err) throw err;
+        console.log("Song inserted");
+    });
+});
 */
