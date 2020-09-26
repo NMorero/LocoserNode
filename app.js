@@ -16,7 +16,7 @@ var connection = mysql.createConnection({
 
 connection.connect(); 
 
-var sql = "CREATE TABLE songs (id INT AUTO_INCREMENT, title VARCHAR(100),  thumbnail VARCHAR(100),  route VARCHAR(100))";
+var sql = "CREATE TABLE songs (id INT(100) NOT NULL AUTO_INCREMENT, title VARCHAR(100),  thumbnail VARCHAR(100),  route VARCHAR(100), PRIMARY KEY(id))";
     connection.query(sql, function (err, result) {
       if (err) throw err;
       console.log("Table torunaments created");
