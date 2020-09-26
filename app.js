@@ -100,7 +100,7 @@ io.on('connection', function(client) {
         var sql = `INSERT INTO chat (message, type) VALUES ('${data.message}', 1)`;
         connection.query(sql, function (err, result) {
             if (err) throw err;
-            con-sole.log("Message inserted");
+            console.log("Message inserted");
         });
     });
     
