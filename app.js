@@ -63,7 +63,7 @@ app.get('/db/songs/:id', function (req, res) {
 });
 
 app.get('/featured/index/info', function (req, res) {
-    fs.readFile('/json/featured.json', 'utf8', function (err, data) {
+    fs.readFile(path.join(__dirname, '/public/json/featured.json'), 'utf8', function (err, data) {
         if (err) throw err;
         res.send(data);
     });
