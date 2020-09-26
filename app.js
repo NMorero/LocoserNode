@@ -16,7 +16,7 @@ var connection = mysql.createConnection({
 
 connection.connect();
 
-var sql = `INSERT INTO songs (title, thumbnail, route, ) VALUES ?`;
+var sql = "INSERT INTO songs (title, thumbnail, route, ) VALUES ?";
 var values = [
     ['CECI DÍAZ - SI NO SABES WALLEAR    #RADIOSER #HIT2020', '/music/img/1.webp', '/music/1.mp3'],
     ['MAGIAR SCOUT - CECI DIAZ ft MAGIAR SCOUT - CECI DIAZ ft LOCOSER', '/music/img/2.webp', '/music/2.mp3'],
