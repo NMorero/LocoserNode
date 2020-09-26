@@ -16,7 +16,7 @@ var connection = mysql.createConnection({
 
 connection.connect();
 var sql = "DROP TABLE songs";  
-con.query(sql, function (err, result) {  
+connection.query(sql, function (err, result) {  
 if (err) throw err;  
 console.log("Table deleted");  
 });  
