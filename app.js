@@ -50,7 +50,7 @@ var values = [
 
 
 values.forEach(song => {
-    var sql = `INSERT INTO chat (title, thumbnail, route) VALUES ('${song[0]}', ${song[1]}, ${song[2]})`
+    var sql = `INSERT INTO chat (title, thumbnail, route) VALUES ('${song[0]}', '${song[1]}', '${song[2]}')`
     connection.query(sql, function (err, result) {
         if (err) throw err;
         console.log("Song inserted");
