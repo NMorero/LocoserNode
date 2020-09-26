@@ -1,9 +1,11 @@
 const express = require("express");
 const app = express();
-var http = require('http').createServer(app);
+const http = require('http').createServer(app);
 const fs = require('fs');
 const mysql = require('mysql');
-var io = require('socket.io')(http);
+const io = require('socket.io')(http);
+const path = require('path');
+
 
 var connection = mysql.createConnection({
   host     : 'localhost',
