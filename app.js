@@ -28,7 +28,7 @@ connection.connect(function(err) {
 
 */
 
-app.use(express.static('public'));
+app.use("/public", express.static(path.join(__dirname, 'public')));
 
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
